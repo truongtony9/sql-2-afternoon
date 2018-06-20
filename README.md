@@ -17,7 +17,7 @@ Use <a href="http://www.sqlteaching.com">SQL Teaching</a> or <a href="http://www
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-SELECT [Column names] 
+SELECT [Column names]
 FROM [Table] [abbv]
 JOIN [Table2] [abbv2] ON abbv.prop = abbv2.prop WHERE [Conditions];
 
@@ -29,15 +29,15 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 
 <br />
 
-1. Get all invoices where the `UnitPrice` on the `InvoiceLine` is greater than $0.99.
-2. Get the `InvoiceDate`, customer `FirstName` and `LastName`, and `Total` from all invoices.
-3. Get the customer `FirstName` and `LastName` and the support rep's `FirstName` and `LastName` from all customers. 
-    * Support reps are on the Employee table.
-4. Get the album `Title` and the artist `Name` from all albums.
-5. Get all PlaylistTrack TrackIds where the playlist `Name` is Music.
-6. Get all Track `Name`s for `PlaylistId` 5.
-7. Get all Track `Name`s and the playlist `Name` that they're on ( 2 joins ).
-8. Get all Track `Name`s and Album `Title`s that are the genre `"Alternative"` ( 2 joins ).
+1.  Get all invoices where the `UnitPrice` on the `InvoiceLine` is greater than $0.99.
+2.  Get the `InvoiceDate`, customer `FirstName` and `LastName`, and `Total` from all invoices.
+3.  Get the customer `FirstName` and `LastName` and the support rep's `FirstName` and `LastName` from all customers.
+    - Support reps are on the Employee table.
+4.  Get the album `Title` and the artist `Name` from all albums.
+5.  Get all PlaylistTrack TrackIds where the playlist `Name` is Music.
+6.  Get all Track `Name`s for `PlaylistId` 5.
+7.  Get all Track `Name`s and the playlist `Name` that they're on ( 2 joins ).
+8.  Get all Track `Name`s and Album `Title`s that are the genre `"Alternative"` ( 2 joins ).
 
 ### Solution
 
@@ -151,9 +151,8 @@ WHERE g.Name = "Alternative";
 
 ### Black Diamond
 
-* Get all tracks on the playlist(s) called Music and show their name, genre name, album name, and artist name.
-  * At least 5 joins.
-
+- Get all tracks on the playlist(s) called Music and show their name, genre name, album name, and artist name.
+  - At least 5 joins.
 
 ## Practice nested queries
 
@@ -168,8 +167,8 @@ Complete the instructions without using any joins. Only use nested queries to co
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-SELECT [Column names] 
-FROM [Table] 
+SELECT [Column names]
+FROM [Table]
 WHERE ColumnId IN ( SELECT ColumnId FROM [Table2] WHERE [Condition] );
 
 SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEaters WHERE Flavor='Apple' );
@@ -179,12 +178,12 @@ SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEat
 
 <br />
 
-1. Get all invoices where the `UnitPrice` on the `InvoiceLine` is greater than $0.99.
-2. Get all Playlist Tracks where the playlist name is Music.
-3. Get all Track names for `PlaylistId` 5.
-4. Get all tracks where the `Genre` is Comedy.
-5. Get all tracks where the `Album` is Fireball.
-6. Get all tracks for the artist Queen ( 2 nested subqueries ).
+1.  Get all invoices where the `UnitPrice` on the `InvoiceLine` is greater than $0.99.
+2.  Get all Playlist Tracks where the playlist name is Music.
+3.  Get all Track names for `PlaylistId` 5.
+4.  Get all tracks where the `Genre` is Comedy.
+5.  Get all tracks where the `Album` is Fireball.
+6.  Get all tracks for the artist Queen ( 2 nested subqueries ).
 
 ### Solution
 
@@ -259,11 +258,11 @@ WHERE AlbumId IN ( SELECT AlbumId FROM Album WHERE Title = "Fireball" );
 ```sql
 SELECT *
 FROM Track
-WHERE AlbumId IN ( 
-  SELECT AlbumId FROM Album WHERE ArtistId IN ( 
-    SELECT ArtistId FROM Artist WHERE Name = "Queen" 
+WHERE AlbumId IN (
+  SELECT AlbumId FROM Album WHERE ArtistId IN (
+    SELECT ArtistId FROM Artist WHERE Name = "Queen"
   )
-); 
+);
 ```
 
 </details>
@@ -279,8 +278,8 @@ WHERE AlbumId IN (
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-UPDATE [Table] 
-SET [column1] = [value1], [column2] = [value2] 
+UPDATE [Table]
+SET [column1] = [value1], [column2] = [value2]
 WHERE [Condition];
 
 UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball';
@@ -290,12 +289,12 @@ UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball';
 
 <br />
 
-1. Find all customers with fax numbers and set those numbers to `null`.
-2. Find all customers with no company (null) and set their company to `"Self"`.
-3. Find the customer `Julia Barnett` and change her last name to `Thompson`.
-4. Find the customer with this email `luisrojas@yahoo.cl` and change his support rep to `4`.
-5. Find all tracks that are the genre `Metal` and have no composer. Set the composer to `"The darkness around us"`.
-6. Refresh your page to remove all database changes.
+1.  Find all customers with fax numbers and set those numbers to `null`.
+2.  Find all customers with no company (null) and set their company to `"Self"`.
+3.  Find the customer `Julia Barnett` and change her last name to `Thompson`.
+4.  Find the customer with this email `luisrojas@yahoo.cl` and change his support rep to `4`.
+5.  Find all tracks that are the genre `Metal` and have no composer. Set the composer to `"The darkness around us"`.
+6.  Refresh your page to remove all database changes.
 
 ### Solution
 
@@ -332,8 +331,8 @@ WHERE Company IS null;
 <summary> <code> #3 </code> </summary>
 
 ```sql
-UPDATE Customer 
-SET LastName = "Thompson" 
+UPDATE Customer
+SET LastName = "Thompson"
 WHERE FirstName = "Julia" AND LastName = "Barnett";
 ```
 
@@ -384,9 +383,9 @@ GROUP BY [Column];
 
 <br />
 
-1. Find a count of how many tracks there are per genre. Display the genre name with the count.
-2. Find a count of how many tracks are the `"Pop"` genre and how many tracks are the `"Rock"` genre.
-3. Find a list of all artists and how many albums they have.
+1.  Find a count of how many tracks there are per genre. Display the genre name with the count.
+2.  Find a count of how many tracks are the `"Pop"` genre and how many tracks are the `"Rock"` genre.
+3.  Find a list of all artists and how many albums they have.
 
 ### Solution
 
@@ -451,9 +450,9 @@ FROM [Table];
 
 <br />
 
-1. From the `Track` table find a unique list of all `Composer`s.
-2. From the `Invoice` table find a unique list of all `BillingPostalCode`s.
-3. From the `Customer` table find a unique list of all `Company`s.
+1.  From the `Track` table find a unique list of all `Composer`s.
+2.  From the `Invoice` table find a unique list of all `BillingPostalCode`s.
+3.  From the `Customer` table find a unique list of all `Company`s.
 
 <details>
 
@@ -535,10 +534,10 @@ DELETE FROM [Table] WHERE [Condition]
 
 <br />
 
-1. Copy, paste, and run the SQL code from the summary.
-2. Delete all `"bronze"` entries from the table.
-3. Delete all `"silver"` entries from the table.
-4. Delete all entries whose value is equal to `150`.
+1.  Copy, paste, and run the SQL code from the summary.
+2.  Delete all `"bronze"` entries from the table.
+3.  Delete all `"silver"` entries from the table.
+4.  Delete all entries whose value is equal to `150`.
 
 ### Solution
 
@@ -551,8 +550,8 @@ DELETE FROM [Table] WHERE [Condition]
 <summary> <code> #1 </code> </summary>
 
 ```sql
-DELETE 
-FROM practice_delete 
+DELETE
+FROM practice_delete
 WHERE Type = "bronze";
 ```
 
@@ -563,8 +562,8 @@ WHERE Type = "bronze";
 <summary> <code> #2 </code> </summary>
 
 ```sql
-DELETE 
-FROM practice_delete 
+DELETE
+FROM practice_delete
 WHERE Type = "silver";
 ```
 
@@ -575,8 +574,8 @@ WHERE Type = "silver";
 <summary> <code> #3 </code> </summary>
 
 ```sql
-DELETE 
-FROM practice_delete 
+DELETE
+FROM practice_delete
 WHERE Value = 150;
 ```
 
@@ -584,36 +583,35 @@ WHERE Value = 150;
 
 </details>
 
-
 ## eCommerce Simulation - No Hints
 
 ### Summary
 
 Let's simulate an e-commerce site. We're going to need users, products, and orders.
 
-* Users need a name and an email.
-* Products need a name and a price
-* Orders need a ref to product.
-* All 3 need primary keys.
+- Users need a name and an email.
+- Products need a name and a price
+- Orders need a ref to product.
+- All 3 need primary keys.
 
 ### Instructions
 
-* Create 3 tables following the criteria in the summary.
-* Add some data to fill up each table.
-  * At least 3 users, 3 products, 3 orders.
-* Run queries against your data.
-  * Get all products for the first order.
-  * Get all orders.
-  * Get the total cost of an order ( sum the price of all products on an order ).
-* Add a foreign key reference from Orders to Users.
-* Update the Orders table to link a user to each order.
-* Run queries against your data.
-  * Get all orders for a user.
-  * Get how many orders each user has.
+- Create 3 tables following the criteria in the summary.
+- Add some data to fill up each table.
+  - At least 3 users, 3 products, 3 orders.
+- Run queries against your data.
+  - Get all products for the first order.
+  - Get all orders.
+  - Get the total cost of an order ( sum the price of all products on an order ).
+- Add a foreign key reference from Orders to Users.
+- Update the Orders table to link a user to each order.
+- Run queries against your data.
+  - Get all orders for a user.
+  - Get how many orders each user has.
 
 ### Black Diamond
 
-* Get the total amount on all orders for each user.
+- Get the total amount on all orders for each user.
 
 ## Contributions
 
